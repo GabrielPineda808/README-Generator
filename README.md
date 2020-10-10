@@ -17,10 +17,10 @@
   You would use this application in order to automate your readme file creation instead of manually typing the README this will create the file automatically foor you with the proper information
   
   <a id="contributors">__Contributors:__</a>
-  Gabriel Pineda 
+  Gabriel Pineda
   <a id="tests">__Tests:__</a>
-  none
+  None
   <a id="questions">__Any Questions:__</a>
-  ![User Photo]({imgURL})
+  ![User Photo](https://api.github.com/users/GabrielPineda808)
   Email: {email}
   ![License: None](https://img.shields.io/badge/License-None-brightgreen)
