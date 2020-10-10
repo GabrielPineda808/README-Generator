@@ -1,16 +1,15 @@
-const fs = require('fs');
-const axios = require('axios');
-const inquirer = require('inquirer');
-const util = require('util');
+const inquirer = require("inquirer");
+const fs = require("fs");
+const util = require("util");
+const axios = require("axios")
 
-const writeFileAsync = util.promisify.apply(fs.writeFile);
-
+const writeFileAsync = util.promisify(fs.writeFile);
 function prompt(){
     return inquirer.prompt([
         {
             type: "input",
             message: "Give your Project a Title: ",
-            name: "pojectTitle"
+            name: "title"
         },
         {
             type: "input",
@@ -44,15 +43,37 @@ function prompt(){
         },
         {
             type: "input",
-            message: "Any questions? ",
+            message: "Are there any questions? ",
             name: "question"
         }
-    ]).then()
+     ])
+//.then(function(response){
+//       const queryUrl = `https://api.github.com/users/${response.github}/events/public`;
+
+//       axios.get(queryUrl).then(function(res) {
+//         var imgURL = res.actor.avatar_url
+//         var email = res.payload.commits[0].email
+//         console.log(imgURL)
+//         console.log(email)
+//         });
+//     })
+}
+
+function image(response){
+    const queryUrl = `https://api.github.com/users/${response.github}/events/public`;
+
+      axios.get(queryUrl).then(function(res) {
+        var imgURL = res[0]
+        // var email = res[0].payload.commits[0].author.email
+        console.log(imgURL)
+        // console.log(email)
+        })
 }
 
 function generatemd(data) {
     return ` 
-# ${data.projectTitle}
+
+# ${data.title}
   ${data.summaryProject}
   
   ___Table-of-Contents___
@@ -72,14 +93,18 @@ function generatemd(data) {
   ${data.contributors}
   <a id="tests">__Tests:__</a>
   ${data.test}
-  <a id="questions">__Questions:__</a>
+  <a id="questions">__Any Questions:__</a>
   ${data.question}
+  ![User Photo]({imgURL})
+  Email: {email}
   ![License: None](https://img.shields.io/badge/License-None-brightgreen)`;
   
 }
 
 prompt().then(function(data){
+    const user = image(data)
     const readme = generatemd(data);
+    console.log(user)
     return writeFileAsync("README.md", readme);
 }).then(function(err){
     console.log(err);
