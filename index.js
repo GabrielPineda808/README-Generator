@@ -40,11 +40,6 @@ function prompt(){
             type: "input",
             message: "Are there any tests? ",
             name: "test"
-        },
-        {
-            type: "input",
-            message: "Are there any questions? ",
-            name: "question"
         }
      ])
 //.then(function(response){
@@ -94,7 +89,6 @@ function generatemd(data) {
   <a id="tests">__Tests:__</a>
   ${data.test}
   <a id="questions">__Any Questions:__</a>
-  ${data.question}
   ![User Photo]({imgURL})
   Email: {email}
   ![License: None](https://img.shields.io/badge/License-None-brightgreen)`;
