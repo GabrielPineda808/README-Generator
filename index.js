@@ -40,6 +40,11 @@ function prompt(){
             type: "input",
             message: "Are there any tests? ",
             name: "test"
+        },
+        {
+            type: "input",
+            message: "What is your email?",
+            name: "email"
         }
      ])
 //.then(function(response){
@@ -89,8 +94,8 @@ function generatemd(data) {
   <a id="tests">__Tests:__</a>
   ${data.test}
   <a id="questions">__Any Questions:__</a>
-  ![User Photo]({imgURL})
-  Email: {email}
+  ![User Photo](https://api.github.com/users/${data.github})
+  Email: ${email}
   ![License: None](https://img.shields.io/badge/License-None-brightgreen)`;
   
 }
