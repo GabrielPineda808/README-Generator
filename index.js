@@ -95,7 +95,7 @@ function generatemd(data) {
   ${data.test}
   <a id="questions">__Any Questions:__</a>
   ![User Photo](https://api.github.com/users/${data.github})
-  Email: ${email}
+  Email: ${data.email}
   ![License: None](https://img.shields.io/badge/License-None-brightgreen)`;
   
 }

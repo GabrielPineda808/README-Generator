@@ -1,8 +1,9 @@
- 
-
-# README Generator
+ # README Generator
   IN this project i created a readme generator using inquirer and node.js in order ot automatically create a readme for any project the user desires using aprompt in js
-  
+## Video of App
+
+![Video](gifapp.gif)
+
   ___Table-of-Contents___
   1. [How to install](#install)
   2. [How to Use](#usage)
